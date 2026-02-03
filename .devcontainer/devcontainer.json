@@ -1,0 +1,33 @@
+{
+  "name": "Team 2 - Advanced Tic-Tac-Toe Dev",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/git-lfs:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ritwickdey.LiveServer",
+        "esbenp.prettier-vscode",
+        "github.vscode-github-actions",
+        "ms-azuretools.vscode-docker"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "liveServer.settings.port": 5500
+      }
+    }
+  },
+  "forwardPorts": [5500],
+  "portsAttributes": {
+    "5500": {
+      "label": "Game Preview (Live Server)",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  // Automatically installs, fixes permissions, and runs tests on launch
+  "postCreateCommand": "npm install && chmod -R +x node_modules/.bin && npm test",
+  "remoteUser": "node"
+}

@@ -1,0 +1,398 @@
+/* --- Global Resets --- */
+* {
+  box-sizing: border-box;
+}
+
+/* THEME VARIABLES */
+:root, [data-theme="default"] {
+  --bg: #a8d0e6;
+  --container-bg: #f0f8ff;
+  --text: #0d3b66;
+  --button-bg: #1e6091;
+  --cell-bg: #d0e7f9;
+  --success: #2ecc71;
+  --warning: #ee5253;
+  --x-color: #e74c3c;
+  --o-color: #3498db;
+}
+
+[data-theme="dark"] {
+  --bg: #121212;
+  --container-bg: #1e1e1e;
+  --text: #e0e0e0;
+  --button-bg: #3700b3;
+  --cell-bg: #333333;
+  --success: #03dac6;
+  --warning: #cf6679;
+  --x-color: #ff4757;
+  --o-color: #54a0ff;
+}
+
+[data-theme="neon"] {
+  --bg: #000000;
+  --container-bg: #0b0b0b;
+  --text: #39ff14;
+  --button-bg: #ff00ff;
+  --cell-bg: #1a1a1a;
+  --success: #39ff14;
+  --warning: #ff3131;
+  --x-color: #ff3131;
+  --o-color: #00d2ff;
+}
+
+[data-theme="forest"] {
+  --bg: #2d6a4f;
+  --container-bg: #d8f3dc;
+  --text: #081c15;
+  --button-bg: #1b4332;
+  --cell-bg: #b7e4c7;
+  --success: #2d6a4f;
+  --warning: #bc4749;
+  --x-color: #bc4749;
+  --o-color: #386641;
+}
+
+[data-theme="sunset"] {
+  --bg: #ff9e00;
+  --container-bg: #ffedd8;
+  --text: #3c096c;
+  --button-bg: #e01e37;
+  --cell-bg: #ffba08;
+  --success: #3c096c;
+  --warning: #9d0208;
+  --x-color: #9d0208;
+  --o-color: #480ca8;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  transition: background-color 0.4s ease;
+}
+
+/* --- Main Containers --- */
+.game-container {
+  background-color: var(--container-bg);
+  padding: 20px;
+  border-radius: 20px;
+  width: 95%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: background-color 0.4s ease;
+}
+
+/* THEME BAR STYLING */
+.theme-bar {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.theme-bar label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.theme-bar select {
+  width: auto !important;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  border-radius: 8px;
+  background-color: var(--cell-bg);
+  color: var(--text);
+  border: 1px solid var(--button-bg);
+  cursor: pointer;
+  font-family: inherit;
+}
+
+h1 {
+  font-size: 1.5rem;
+  color: var(--text);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* --- Setup Screen --- */
+.setup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+}
+
+.input-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.input-group label {
+  font-size: 0.85rem;
+  margin-bottom: 5px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.input-group input, .input-group select {
+  padding: 10px;
+  border: 2px solid var(--cell-bg);
+  border-radius: 10px;
+  font-family: inherit;
+  outline: none;
+  width: 100%;
+  background: white;
+}
+
+.input-group input:focus {
+  border-color: var(--button-bg);
+}
+
+/* --- Game Screen Layout --- */
+#game {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.settings-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  background: rgba(0,0,0,0.03);
+  padding: 8px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+.settings-group select {
+  padding: 4px;
+  border-radius: 5px;
+  border: 1px solid var(--button-bg);
+}
+
+#status {
+  margin: 5px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+}
+
+/* --- Grid & Cells --- */
+#grid {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+  max-width: 320px;
+  margin: 10px 0;
+}
+
+.cell {
+  background-color: var(--cell-bg);
+  aspect-ratio: 1;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.1s, background-color 0.2s;
+}
+
+.cell:hover {
+  filter: brightness(0.9);
+}
+
+/* --- Game States --- */
+.cell.X { color: var(--x-color); }
+.cell.O { color: var(--o-color); }
+
+.cell.selected {
+  outline: 3px solid var(--button-bg);
+  background-color: var(--cell-bg);
+  transform: scale(0.92);
+}
+
+.cell.valid {
+  background-color: #c8e6c9;
+  border: 2px dashed #4caf50;
+}
+
+.cell.blocked {
+  background-color: #ffe0e0;
+  cursor: not-allowed;
+}
+
+.cell.win {
+  background-color: #ffeb3b !important;
+  animation: pulse 1s infinite;
+}
+
+/* --- Power Cards Section --- */
+.power-cards-container {
+  width: 100%;
+  background: rgba(0,0,0,0.03);
+  padding: 10px;
+  border-radius: 12px;
+  color: var(--text);
+}
+
+.power-cards-container h3 {
+  margin: 0 0 10px 0;
+  font-size: 0.85rem;
+  text-align: center;
+  color: var(--text);
+}
+
+.player-power-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 0.8rem;
+}
+
+/* --- Buttons --- */
+button {
+  background-color: var(--button-bg);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: opacity 0.2s, background-color 0.4s ease;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.main-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 1rem;
+}
+
+.apply-btn {
+  background-color: var(--success); /* Now themed! */
+  padding: 4px 12px;
+  font-size: 0.75rem;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+}
+
+button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* --- Alerts & Popups --- */
+.earthquake-alert {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--x-color), var(--warning)); /* Themed Earthquake */
+  color: white;
+  padding: 15px 30px;
+  border-radius: 50px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.alert-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-weight: 600;
+}
+
+.alert-counter {
+  background: white;
+  color: var(--warning);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+
+.power-popup {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--button-bg); /* Themed Popups */
+  color: white;
+  padding: 12px 25px;
+  border-radius: 8px;
+  z-index: 10001;
+  display: none;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  animation: popIn 0.3s ease-out;
+}
+
+/* --- Animations --- */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes popIn {
+  0% { transform: translateX(-50%) scale(0.5); opacity: 0; }
+  100% { transform: translateX(-50%) scale(1); opacity: 1; }
+}
+
+.earthquake-shake {
+  animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+  10%, 90% { transform: translate3d(-1px, 0, 0); }
+  20%, 80% { transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60% { transform: translate3d(4px, 0, 0); }
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moving Tic Tac Toe</title>
+  <link rel="stylesheet" href="./src/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+  <div class="game-container">
+    <div class="theme-bar">
+      <label for="globalThemeSelect">🎨 Theme:</label>
+      <select id="globalThemeSelect">
+        <option value="default">Classic Blue</option>
+        <option value="dark">Midnight Gamer</option>
+        <option value="neon">Cyber Neon</option>
+        <option value="forest">Enchanted Forest</option>
+        <option value="sunset">Sunset Vibes</option>
+      </select>
+    </div>
+
+    <h1>Moving Tic-Tac-Toe</h1>
+    
+    <div id="setup" class="setup">
+      <div class="input-wrapper">
+        <div class="input-group">
+          <label for="playerXInput">Player X Name:</label>
+          <input type="text" id="playerXInput" placeholder="Enter name" value="Player X">
+        </div>
+        <div class="input-group">
+          <label for="playerOInput">Player O Name:</label>
+          <input type="text" id="playerOInput" placeholder="Enter name" value="Player O">
+        </div>
+      </div>
+      <button id="startBtn" class="main-btn">Start Game</button>
+    </div>
+
+    <div id="game" style="display: none;">
+      
+      <div class="settings-group">
+        <label for="boardSizeSelect">Board Size:</label>
+        <select id="boardSizeSelect">
+          <option value="3">3x3</option>
+          <option value="4">4x4</option>
+          <option value="5">5x5</option>
+        </select>
+        <button id="applySizeBtn" class="apply-btn">Apply & Reset</button>
+      </div>
+      
+      <h2 id="status">Player X's Turn</h2>
+
+      <div id="grid" class="grid"></div>
+
+      <div class="power-cards-container">
+        <h3>One-Time Power Cards</h3>
+        <div class="player-power-card">
+          <span><strong id="displayXName">Player X</strong>: <span id="powerNameX">Waiting...</span></span>
+          <button id="usePowerX" class="power-btn">Use Power</button>
+        </div>
+        <div class="player-power-card">
+          <span><strong id="displayOName">Player O</strong>: <span id="powerNameO">Waiting...</span></span>
+          <button id="usePowerO" class="power-btn">Use Power</button>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button id="resetBtn">Home Screen</button>
+        <button id="undoBtn">Undo Move</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="earthquake-alert" id="earthquakeAlert" style="display: none;">
+    <div class="alert-content">
+      <span class="alert-icon">🌋</span>
+      <span class="alert-text">EARTHQUAKE INCOMING!</span>
+      <div class="alert-counter" id="quakeCounter">3</div>
+    </div>
+  </div>
+
+  <div id="powerPopUp" class="power-popup" style="display: none;">
+    <div class="power-content">
+        <span id="powerEmoji">⚡</span>
+        <span id="powerText">POWER ACTIVATED!</span>
+    </div>
+  </div>
+
+  <div id="drawPopUp" class="power-popup" style="display: none; background: #636e72;">
+    <div class="power-content">
+        <span>🤝 IT'S A DRAW!</span>
+        <button id="drawHomeBtn" style="margin-left: 15px; background: white; color: black; border-radius: 5px; padding: 5px 10px; cursor: pointer;">Home</button>
+    </div>
+  </div>
+
+  <script src="./src/script.js"></script>
+</body>
+</html>
