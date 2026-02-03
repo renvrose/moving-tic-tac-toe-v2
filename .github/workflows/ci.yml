@@ -46,7 +46,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/renvrose/moving-tic-tac-toe:latest
+          tags: ghcr.io/renvrose/moving-tic-tac-toe-v2:latest
 
       # --- TRIGGER RENDER DEPLOY ---
 
