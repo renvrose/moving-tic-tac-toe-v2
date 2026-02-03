@@ -52,7 +52,7 @@ Environment: Select Docker.
 Auto-Deploy: Once the hook is triggered by GitHub Actions, Render will pull the image tagged :latest and go live.
 
 👥 Team Contributions
-Sahana (Team Leader): Version 1.0 & Troubleshooting Overall App.
+Sahana (Team Leader): Version 1.0 & Troubleshooting Overall App, V2
 
 Li Xuan & Daniel: Comprehensive Test Case Suites.
 
