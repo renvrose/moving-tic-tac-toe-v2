@@ -52,11 +52,4 @@ jobs:
 
       - name: Deploy to Render
         if: github.ref == 'refs/heads/main' && success()
-        env:
-          RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
-        run: |
-          if [ -z "$RENDER_DEPLOY_HOOK" ]; then
-            echo "Error: RENDER_DEPLOY_HOOK secret is missing!"
-            exit 1
-          fi
-          curl -f -X POST "$RENDER_DEPLOY_HOOK"
+        run: curl -f -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}"
