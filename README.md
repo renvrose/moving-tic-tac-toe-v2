@@ -7,7 +7,7 @@ This version features a robust DevOps Lifecycle, utilizing a high-speed CI/CD pi
 ✨ New & Enhanced Features
 Dynamic Board Scaling: Select between 3x3, 4x4, or 5x5 grids for varying difficulty.
 
-Advanced Moving Mechanic: Once the piece limit is reached, players must move existing pieces to adjacent/diagonal empty cells.
+Advanced Moving Mechanic: Once the piece limit is reached, players must move existing pieces to adjacent/diagonal empty cells. 
 
 One-Time Power Cards: Brand new to v2.0! Utilize unique abilities like Earthquake or Tornado to disrupt the board.
 
